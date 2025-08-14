@@ -1,38 +1,57 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Scout Field Guide</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="manifest" href="manifest.json" />
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Ultimate Scouters Guide</title>
+
+  <!-- PWA manifest -->
+  <link rel="manifest" href="manifest.json">
+
+  <!-- iOS meta -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="ScoutGuide">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+
+  <!-- Leaflet CSS for maps (CDN) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+
+  <!-- Local style -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>Scout Field Guide</h1>
+  <header class="topbar">
+    <div class="brand">Ultimate Scouters Guide</div>
+    <input id="search" placeholder="Search knots, fire, first aid, songs..." />
+    <button id="installBtn" class="hidden">Install</button>
   </header>
 
-  <section id="lashings">
-    <h2>Lashings</h2>
-    <p>Learn square, diagonal, and shear lashings with step-by-step visuals.</p>
-    <img src="lashings-diagram.png" alt="Lashing Diagram" />
-  </section>
+  <main class="container">
+    <nav class="tabs" role="tablist" aria-label="Sections">
+      <button data-tab="home" class="active">Home</button>
+      <button data-tab="knots">Knots</button>
+      <button data-tab="lashings">Lashings</button>
+      <button data-tab="fire">Firecraft</button>
+      <button data-tab="nav">Navigation</button>
+      <button data-tab="tracking">Tracking</button>
+      <button data-tab="songs">Songs</button>
+      <button data-tab="tools">Tools</button>
+      <button data-tab="notes">Notes</button>
+    </nav>
 
-  <section id="map">
-    <h2>Map & UTM Coordinates</h2>
-    <div id="mapContainer"></div>
-    <input type="text" id="utmInput" placeholder="Enter UTM (e.g., 11S 377299 3700689)" />
-    <button onclick="showUTM()">Show on Map</button>
-  </section>
+    <section id="content" class="content-area">
+      <!-- app content injected here -->
+    </section>
+  </main>
 
-  <section id="pawTracking">
-    <h2>Paw Tracking</h2>
-    <p>Trace and measure animal tracks in the wild. Use a ruler or coin for scale.</p>
-    <video id="camera" autoplay></video>
-    <button onclick="capturePaw()">Capture Track</button>
-    <canvas id="pawCanvas"></canvas>
-  </section>
+  <footer class="footer">Built for Scouters • Offline-ready PWA • Local notes & favorites</footer>
 
-  <script src="script.js"></script>
+  <!-- dependencies: Leaflet + Proj4 for UTM -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.8.1/proj4.js"></script>
+
+  <!-- app script -->
+  <script src="app.js" defer></script>
 </body>
 </html>
