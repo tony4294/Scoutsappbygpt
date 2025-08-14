@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Scout Field Guide</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json" />
+</head>
+<body>
+  <header>
+    <h1>Scout Field Guide</h1>
+  </header>
+
+  <section id="lashings">
+    <h2>Lashings</h2>
+    <p>Learn square, diagonal, and shear lashings with step-by-step visuals.</p>
+    <img src="lashings-diagram.png" alt="Lashing Diagram" />
+  </section>
+
+  <section id="map">
+    <h2>Map & UTM Coordinates</h2>
+    <div id="mapContainer"></div>
+    <input type="text" id="utmInput" placeholder="Enter UTM (e.g., 11S 377299 3700689)" />
+    <button onclick="showUTM()">Show on Map</button>
+  </section>
+
+  <section id="pawTracking">
+    <h2>Paw Tracking</h2>
+    <p>Trace and measure animal tracks in the wild. Use a ruler or coin for scale.</p>
+    <video id="camera" autoplay></video>
+    <button onclick="capturePaw()">Capture Track</button>
+    <canvas id="pawCanvas"></canvas>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
